@@ -1,0 +1,27 @@
+development:
+  adapter: mysql2
+  database: artsbox-dev
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+#test:
+#  adapter: mysql2
+#  database: arts_box_test
+#  username: root
+#  password:
+#  socket: /tmp/mysql.sock
+#
+#staging:
+#  adapter: mysql2
+#  database: arts_box_staging
+#  username: root
+#  password: monsterz
+#  socket: /var/run/mysqld/mysqld.sock
+#
+#production:
+#  adapter: mysql2
+#  database: arts_box_production
+#  username: root
+#  password:
+#  socket: /var/run/mysqld/mysqld.sock#
