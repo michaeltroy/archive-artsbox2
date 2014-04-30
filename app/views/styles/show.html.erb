@@ -1,4 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_style_path(@style) %> |
-<%= link_to 'Back', styles_path %>
+<p><%= image_tag @style.background.url(:small) %></p>
+<p><%= link_to 'Edit my styles', edit_box_style_path(@box, @style) %></p>

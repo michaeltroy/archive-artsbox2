@@ -1,0 +1,7 @@
+<style type="text/css" media="screen">
+<% if @active == @user %>
+	body { background-image: url(<%= @active.style.background.url %>); }
+<% else %>
+	body { background-image: url(<%= @user.style.background.url %>); }
+<% end %>
+</style>

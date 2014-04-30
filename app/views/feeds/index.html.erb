@@ -1,0 +1,7 @@
+<h1>Stream</h1>
+
+<% if active_user %>
+<%= render :partial => "user_network_feed" %>
+<% else %>
+<%= render :partial => "user_feed" %>
+<% end %>

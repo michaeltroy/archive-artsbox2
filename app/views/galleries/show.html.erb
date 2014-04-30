@@ -1,0 +1,32 @@
+	<h1>
+  	<%=h @gallery.title %>
+	</h1>
+
+	<% if @gallery.images.size == 0 %>
+	<p id="placeholder">
+		 Your gallery "<%= @gallery.title %>" has no images yet!
+	</p>
+	<% else %>
+	  
+	<div id="gallery">
+		<% @gallery.images.each do |image| %>
+		<p id="image">
+		<%= link_to "#{image_tag image.image.url(:thumb)}", image.image.url(:large), 
+			:popup => ['height=600,width=600'] %>
+		
+		<% if is_active_user %>
+		<%= link_to "X", user_gallery_image_path(@user, @gallery, image), 
+				 :confirm => "Are you sure?", :method => :delete %></p>
+		<% else %>
+		<% end %>
+		
+		<% end %>
+	</div>
+		
+	<% end %>
+ 
+	<% if is_active_user %>
+	<%= render :partial => "images/image" %>
+	<% else %>
+	<% end %>
+	

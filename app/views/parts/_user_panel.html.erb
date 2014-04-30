@@ -1,0 +1,23 @@
+
+  <div class="dashboard_avatar">
+    <h2><%= link_to "#{@user.username}", permalink_path(@user) %></h2>
+    <%= image_tag @user.avatar.url(:original) %>
+  </div>
+  
+  <!-- friendships -->
+  <% if @active %>
+    <% if active_user %>
+    <% elsif current_friend %>
+      You are friends with <%= "#{@user.username}" %>
+    <% else %>
+    <p><%= link_to "<b>Follow me</b>", user_friendships_path(:friend_id => @user.id), :method => :post %></p>         
+    <% end %>
+  <% end %>
+  
+  <ul class="user_navigation">
+    <% if active_user %>
+    <li><%= link_to "Friendships", user_friendships_path(@user) %></li>
+    <% end %>
+    <li><%= link_to "Posts", user_posts_path(@user) %></li>
+    <li><%= link_to "Images", user_images_path(@user) %></li>
+  </ul>

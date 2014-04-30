@@ -1,0 +1,72 @@
+/* @override 
+	http://artsbox.local/stylesheets/latest_posts.css
+	http://artsbox.local/stylesheets/posts.css
+*/
+
+/* global posts styles --- */
+
+#latest_posts {
+	width: 348px;
+	float: left;
+}
+
+#latest_posts p.post {
+	margin-bottom: 12px;
+}
+
+#latest_posts p.post span.avatar_tiny a img {
+	float: left;
+	margin-right: 8px;
+	margin-bottom: 4px;
+}
+
+#latest_posts p.post span.title a {
+	display: inline-block;
+	font-size: 112%;
+}
+
+#latest_posts p.post span.body {
+	display: block;
+	margin-left: 44px;
+}
+
+#latest_posts p.post span.user {
+	font-style: italic;
+	margin-left: 44px;
+	display: block;
+}
+
+/*--------------------*/
+
+#post_body {
+	margin-bottom: 24px;
+	line-height: 124%;
+}
+
+#post_body p {
+	line-height: 124%;
+}
+
+/* posts index --- */
+
+div.list_of_posts {
+	margin-bottom: 4px;
+}
+
+div.list_of_posts p.title {
+	font-size: 112%;
+}
+
+div.list_of_posts p.title a {
+	font-size: 144%;
+}
+
+div.list_of_posts p.information {
+	font: 92% sans-serif;
+}
+
+div.list_of_posts p.information span.comments_size {
+}
+
+div.list_of_posts p.information span.comments_size a {
+}http://www.twit.tv/floss79

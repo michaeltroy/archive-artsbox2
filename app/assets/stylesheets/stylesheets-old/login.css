@@ -1,0 +1,196 @@
+/* @override 
+	http://arts.local/stylesheets/login.css
+	http://artsbox.local/stylesheets/login.css
+	http://artsbox.local/stylesheets/login_sign_up.css
+	http://artsbox.local/stylesheets/login_signup.css
+*/
+
+body {
+	background-color: #eee;
+	padding: 24px;
+	font: .8em/16px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #8e8e8e;
+}
+
+fieldset {
+	border-style: none;
+	padding: 0;
+}
+
+label {
+	float: left;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+input {
+	margin-bottom: 12px;
+	padding: 4px;
+}
+
+a {
+	color: #8e8e8e;
+}
+
+/* ---------------- */
+
+#login p.error {
+	color: #f83e9a;
+	margin-top: 0;
+	font-size: 112%;
+	margin-bottom: 24px;
+}
+
+/* ---------------- */
+
+#spinner {
+	text-align: center;
+	margin-bottom: 12px;
+	display: none;
+}
+
+/* ---------------- */
+
+#login p.notice {
+	color: #79be10;
+	margin-bottom: 24px;
+	font-size: 124%;
+	margin-top: 0;
+}
+
+/* ---------------- */
+
+#login_wrapper {
+	background-color: #fefffe;
+	-webkit-border-radius:12px;
+	-moz-border-radius:12px;
+	width: 491px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 12px;
+}
+
+#login {
+	padding: 24px;
+	background-color: #363636;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+
+#details {
+	padding: 16px;
+	margin-bottom: 12px;
+	overflow: auto;
+	background-color: #252525;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;	
+}
+
+#details p {
+	text-align: right;
+}
+
+#login h1 {
+	color: #707070;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 244%;
+	margin-top: 0;
+}
+
+#login label {
+	margin-top: 6px;
+	font-size: 164%;
+	color: #707070;
+	text-align: left;
+	width: 112px;
+}
+
+#login input {
+	font-size: 184%;
+}
+
+#login input#email {
+	width: 64%;
+}
+
+#login input#password {
+	width: 64%;
+}
+
+#login fieldset {
+}
+
+#details input.login_button {
+	padding: 0 0 2px;
+	float: right;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+/* ---------------- */
+
+#lost_password {
+	background-color: #d6ecf3;
+	padding: 24px;
+	margin-bottom: 12px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	display: none;
+}
+
+#lost_password p {
+	color: #1a7db6;
+}
+
+#lost_password form h2 {
+	color: #1a7db6;
+	font-weight: normal;
+	font-style: normal;
+	margin-top: 0;
+}
+
+#lost_password input#email {
+	text-align: center;
+	width: 78%;
+	margin-bottom: 0;
+}
+
+#lost_password form input.submit {
+	float: right;
+	margin-top: 12px;
+}
+
+/* ---------------- */
+
+#resend_new_account_email {
+	background-color: #d6ecf3;
+	padding: 24px;
+	margin-bottom: 12px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	display: none;
+}
+
+#resend_new_account_email p {
+	color: #1a7db6;
+}
+
+#resend_new_account_email form h2 {
+	color: #1a7db6;
+	font-weight: normal;
+	font-style: normal;
+	margin-top: 0;
+}
+
+#resend_new_account_email input#email {
+	text-align: center;
+	width: 78%;
+	margin-bottom: 0;
+}
+
+#resend_new_account_email form input.submit {
+	float: right;
+	margin-top: 12px;
+}resend_new_account_emailresend_new_account_emailresend_new_account_emailresend_new_account_emailresend_new_account_emailresend_new_account_emailresend_new_account_emailresend_new_account_email

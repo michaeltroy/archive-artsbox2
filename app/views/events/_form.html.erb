@@ -1,17 +1,46 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= image_tag @event.image.url(:small) %>
+<%= f.file_field :image %> <br />
+	
+		<%= f.label :category %>
+		<%= f.select :category, options = [ 'Talk', 'Workshop','Opening', 'Closing', 
+								 'Exhibition', 'Opportunity', 'Educational', 'General'] %></p>
 
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+   <%= f.label :title %>
+   <%= f.text_field :title %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   <%= f.label :location %>
+   <%= f.text_field :location %>
+
+   <%= f.label :venue %>
+   <%= f.text_field :venue %>
+
+   <%= f.label :artist %>
+   <%= f.text_field :artist %>
+
+   <%= f.label :body %>
+   <%= f.text_area :body %>
+
+   <%= f.label :link %>
+   <%= f.text_field :link %>
+
+   <%= f.label :permalink %>
+   <%= f.text_field :permalink %>
+
+   <%= f.label :start_date %>
+   <%= f.date_select :start_date, :include_blank => true  %>
+
+   <%= f.label :start_time %>
+   <%= f.time_select :start_time, :minute_step => 15, :include_blank => true  %>
+
+   <%= f.label :end_date %>
+   <%= f.date_select :end_date, :include_blank => true %>
+
+   <%= f.label :end_time %>
+   <%= f.time_select :end_time, :minute_step => 15, :include_blank => true  %>
+
+   <%= f.label :opening_date %>
+   <%= f.date_select :opening_date, :include_blank => true  %>
+
+   <%= f.label :opening_time %>
+   <%= f.time_select :opening_time, :minute_step => 15, :include_blank => true  %>
+ </p>

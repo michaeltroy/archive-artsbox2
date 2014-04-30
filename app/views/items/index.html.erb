@@ -1,0 +1,23 @@
+
+<h1>Items for sale</h1>
+
+	
+	<% for item in @items %>
+	<div class="item">
+
+		<h2><%=h item.title %></h2>
+		<% if item.images.first %>
+		<%= image_tag item.images.first.image.url(:thumb) %>
+		<% end %>	
+
+		<!-- controls -->	
+		<p><%= link_to 'Show', user_item_path(@user, item) %>|
+	  <%= link_to 'Destroy', user_item_path(@user, item), :confirm => 'Are you sure?', :method => :delete %></p>
+	</div>
+	<% end %>
+
+	<div id="bar">
+			<% if active_user %>
+				<%= link_to "List a new item", new_user_item_path(@user) %>
+			<% end %>
+	</div>

@@ -1,74 +1,92 @@
-class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+class CommentsController < DashboardController
+  
+  before_filter       :user, :post
+  skip_before_filter  :is_active_box
+  skip_before_filter  :is_admin
+  
+  def user
+    @user = User.find_by_permalink(params[:permalink])
+  end
+  
+  def post
+    @post = Post.find(params[:post])
+  end
+  
   # GET /comments
-  # GET /comments.json
+  # GET /comments.xml
   def index
-    @comments = Comment.all
+    @comments = @post.comments.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @comments }
+    end
   end
 
   # GET /comments/1
-  # GET /comments/1.json
+  # GET /comments/1.xml
   def show
+    @comment = @post.comments.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @comment }
+    end
   end
 
   # GET /comments/new
+  # GET /comments/new.xml
   def new
-    @comment = Comment.new
   end
 
   # GET /comments/1/edit
   def edit
+    @comment = @post.comments.find(params[:id])
   end
 
   # POST /comments
-  # POST /comments.json
-  def create
-    @comment = Comment.new(comment_params)
+  # POST /comments.xml
+  def create  
+    @comment = @post.comments.build(params[:comment].merge(:user => active))
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @comment }
+        format.html { redirect_to box_post_path(@box, @post) }
+        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.js   { render :template => false }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
+  # PUT /comments/1
+  # PUT /comments/1.xml
   def update
+    @comment = @post.comments.find(params[:id])
+
     respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
+      if @comment.update_attributes(params[:comment])
+        flash[:notice] = 'Comment was successfully updated.'
+        format.html { redirect_to box_post_path(@box, @comment) }
+        format.xml  { head :ok }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # DELETE /comments/1
-  # DELETE /comments/1.json
+  # DELETE /comments/1.xml
   def destroy
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
+
     respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
+      format.html { redirect_to box_post_path(@box, @post) }
+      format.xml  { head :ok }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params[:comment]
-    end
 end

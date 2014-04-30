@@ -16,7 +16,7 @@ development:
 #  adapter: mysql2
 #  database: arts_box_staging
 #  username: root
-#  password: monsterz
+#  password: 
 #  socket: /var/run/mysqld/mysqld.sock
 #
 #production:

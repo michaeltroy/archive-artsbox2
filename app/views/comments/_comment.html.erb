@@ -1,0 +1,20 @@
+<div id="comment">
+
+	<!-- comment body -->
+	<span class="avatar">
+		 <%= link_to "#{image_tag comment.user.avatar.url(:small)}", 
+		permalink_path(comment.user) %></span>
+	
+	<span class="body">
+	<b><%= link_to "#{comment.user.permalink}", permalink_path(comment.user) %></b> 
+ 		 <%= textilize(comment.body) %></span>
+
+	<!-- admin remove comment -->
+	<span class="posted_on">Comment made 
+		<%= time_ago_in_words(comment.created_at).capitalize %> ago.
+		<% if is_admin %>
+			<%= link_to "Remove comment", user_post_comment_path(@user, comment.post, comment), 
+									:confirm => "Are you sure?", :method => :delete %>
+		<% end %>
+	</span>
+</div>

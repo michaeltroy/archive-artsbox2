@@ -1,0 +1,28 @@
+/* @override http://artsbox.local/stylesheets/items.css */
+
+/* ------------------
+general styling */
+
+#items {
+	width: 708px;
+	float: left;
+	margin-right: 12px;
+}
+
+#items .item {
+	float: left;
+	border: 1px solid #e0e0e0;
+	text-align: center;
+	margin-bottom: 6px;
+	margin-right: 6px;
+}
+
+div.item {
+	float: left;
+	padding: 4px;
+}
+
+div.item a img {
+	overflow: visible;
+	float: left;
+}#items div.item a img

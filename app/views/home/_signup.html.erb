@@ -1,0 +1,32 @@
+<div class="sign_up_box">
+	<h1>ArtsBox loves you.</h1>
+				
+	<% form_tag signup_home_page_path, :id => "new_account" do %>
+	<% form_for @account do |account|%>
+		
+		<%= account.hidden_field :password, :value => "#{@random}" %>
+		
+		<p>Choose a Box name and enter your email address. 
+		Then you'll have a shiny new account.</p>
+		
+		<% fields_for @box do |box| %>
+			<label>Choose a <b>Box name</b></label>
+			<%= box.text_field :permalink %>
+		<% end %>
+		
+		<label>Enter your <b>email address</b></label>
+	 	<%= account.text_field :email %>
+		
+		<%= submit_tag "Create my Box now", :class => "create_account_button" %> 
+	
+	<% end %>
+	<% end %>
+	
+	<!-- render home or page -->
+	<% if controller.controller_name == 'home' %>
+	<% else %>
+		<p class="not_ready_to_sign_up"><%= link_to "Already a member", new_session_path %> 
+		<span class="or">or</span>
+		<%= link_to "please take me home", :controller => :home %></h4>	
+	<% end %>
+</div>

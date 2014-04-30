@@ -1,0 +1,135 @@
+/* @override http://artsbox.local/stylesheets/styles.css */
+
+#color_picker .color_input {
+  width: 112px;
+  height: 24px;
+  text-align: center;
+  font-size: 100%;
+  margin-top: 12px;
+}
+
+#color_picker {
+  padding: 12px 12px 0;
+  overflow: auto;
+  background-color: #eaeaea;
+  margin-bottom: 12px;
+}
+
+#color_options {
+  width: 264px;
+  float: right;
+}
+
+#panel_colors {
+  display: none;
+}
+
+#background_color_select {
+}
+
+/* Panels -- */
+
+#sample_background_color {
+  width: 164px;
+  height: 24px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  margin-bottom: 4px;
+}
+
+#sample_panel {
+  width: 164px;
+  height: 24px;
+  border: 1px solid #fff;
+}
+
+#select_background_color {
+  float: left;
+  clear: left;
+  text-align: center;
+}
+
+#panel_color {
+  text-align: center;
+  float: left;
+  clear: left;
+  display: none;
+}
+
+#p_color {
+  clear: left;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+#h1_color {
+  clear: left;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+#h2_color {
+  clear: left;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+#h3_color {
+  clear: left;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+#a_color {
+  clear: left;
+  float: left;
+  text-align: center;
+  display: none;
+}
+
+/* p --- */
+
+p {
+}
+
+#p_color_select {
+}
+
+/* h1 --- */
+
+h1 {
+}
+
+/* h2 --- */
+
+h2 {
+}
+
+/*  h3 --- */
+
+h3 {
+}
+
+/* a --- */
+
+a {
+}
+
+h1#h1_text {
+}
+
+h2#h2_text {
+}
+
+h3#h3_text {
+}
+
+p#p_text {
+}
+
+a#a_text {
+}

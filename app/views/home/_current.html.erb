@@ -1,0 +1,26 @@
+
+<% @current.each do |current| %>
+
+  <p id="wrapper">
+  
+  <span class="image">
+    <%= image_tag current.image.url(:tiny) %></span>
+  <span class="title">
+  <%= link_to "#{current.title}", user_event_path(current.user, current) %></span>
+  
+  <span class="category"> 
+  <%= current.category %></span><br />
+  
+  <% if current.artist? %>
+  <span class="artist">
+  <%= current.artist %></span><br />
+  <% end %>
+  
+  <span class="details">
+  <b>Until</b> <%= current.end_date.strftime("%a %d %B %y") %> | 
+  <%= current.location %> 
+  </span><br />
+    
+<%= link_to "More information", user_event_path(current.user, current) %>
+  </p>
+  <% end %>

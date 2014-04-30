@@ -1,0 +1,29 @@
+
+<% @upcoming.each do |event| %>
+
+	<p id="wrapper">
+	
+	<span class="image">
+		<%= image_tag event.image.url(:tiny) %></span>
+	<span class="title">
+		<%= link_to "#{event.title}", user_event_path(event.user, event) %></span>
+	
+	<span class="category"> 
+	<%= event.category %></span><br />
+	
+	<% if event.artist? %>
+	<span class="artist">
+	<%= event.artist %></span><br />
+	<% end %>
+	
+	<span class="details">
+ 	<%= event.start_date.strftime("%a %d %B %y") %> | 
+	<%= event.location %> 
+	</span><br />
+		
+	<%= link_to "More information", user_event_path(event.user, event) %>
+	</p>
+	<% end %>
+	
+	
+	

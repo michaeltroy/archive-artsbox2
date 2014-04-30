@@ -1,0 +1,18 @@
+/* @override http://artsbox.local/stylesheets/developer.css */
+
+/*developer ---*/
+#developer {
+	overflow: auto;
+	clear: both;
+	padding-top: 12px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 1080px;
+}
+
+#developer p {
+	font-size: 86%;
+}
+
+#developer a {
+}

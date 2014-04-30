@@ -1,0 +1,81 @@
+
+  <!-- Password spinner -->
+  <div id="spinner"><%= image_tag "login/loader.gif" %></div>
+
+  
+
+
+
+  <!-- user login fields -->
+  <h1 class="login">User login</h1>
+  <%= form_tag session_path do %>
+    <fieldset>
+      <div id="details">
+      <p>
+        <label>Email</label>
+        <%= text_field_tag :email, params[:email] %></p>
+      <p>
+        <label>Password</label><%= password_field_tag :password, params[:password] %></p>
+        <%= image_submit_tag("login/login.gif", :class => "login_button") %>
+      </div>
+    </fieldset>
+  <% end %>
+
+
+
+
+
+  <!-- Lost password. -->
+  <div id="lost_password">
+  <%= form_tag(new_password_path, {:onSubmit => "$('#lost_password').hide(); $('#spinner').show();"}) do %>
+    <h2>Lost password</h2>  
+    <p>Please enter your email address and a new password will be sent to you right away.</p>
+      <%= text_field_tag :email %> 
+    <%= submit_tag "Submit" %>
+  <% end %>
+  </div>
+
+    <!-- resend password -->
+  <div id="resend_new_account_email">
+  <%= form_tag(new_password_path, {:onSubmit => "$('#resend_new_account_email').hide(); $('#spinner').show();"}) do %>  
+    <h2>Resend activation email</h2>
+    <p>Please enter your email address and we will resend your account activation email.</p>
+      <%= text_field_tag :email %> 
+    <%= submit_tag "Submit" %>
+  <% end %>
+  </div>
+  
+  
+    <!-- toggle login and generate password fields -->
+  <script>
+    $(document).ready(function() {  
+      $(".lost").click(function() {
+        $("#details, #resend_new_account_email, h1.login").hide();
+        $("#lost_password").show();
+      });
+    });
+  </script>
+  <a href="#" class="lost">Lost password</a> |
+
+    <script>
+    $(document).ready(function() {  
+      $(".resend").click(function() {
+        $("#details, #lost_password, h1.login").hide();
+        $("#resend_new_account_email").show();
+      });
+    });
+  </script>
+  <a href="#" class="resend">Resend</a> |
+
+
+  <script>
+    $(document).ready(function() {  
+      $(".login").click(function() {
+        $("#resend_new_account_email, #lost_password").hide();
+        $("#details, h1.login").show();
+      });
+    });
+  </script>
+  <a href="#" class="login">Login</a> |
+  
+  <%= link_to "Home", :controller => :home %>

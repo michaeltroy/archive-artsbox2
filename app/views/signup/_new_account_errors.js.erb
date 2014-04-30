@@ -1,0 +1,34 @@
+// Hide spinner and show submit button
+$('#spinner').hide(); 
+$('#create_my_account').show();
+
+// Get the errors.
+$('#validation_message').fadeIn().append("<%= @user.errors.to_json %>");
+
+//$('#call_to_action, #about').hide();
+//
+//// Only show last relevant error message and fade in.
+//$("p.errors").filter(":not(:last)").remove().filter(":last").fadeIn();
+//
+//// Add the error heading.
+//$("p.errors:last > span.error:contains('user ')").filter(":first").before("<span class='error_heading'>User address</span");
+//$("p.errors:last > span.error:contains('username')").filter(":first").before("<span class='error_heading'>Username</span");
+//$("p.errors:last > span.error:contains('email ')").filter(":first").before("<span class='error_heading'>Email address</span");
+//
+//// User address validation color.
+//if ($("p.errors > span.error:contains('user ')").length > 0 ) {
+// $("#user_permalink").css({"background-color":"white", "border-style":"solid", "border-color":"#f8159c", "border-width":"2px"}); }
+//else { $("#user_permalink").css({"background-color":"#c6fec0", "border-style":"solid", "border-color":"#c6fec0", "border-width":"2px"}); }
+//
+//// Username validation color.
+//if ($("p.errors > span.error:contains('username')").length > 0 ) {
+// $("#user_username").css({"background-color":"white", "border-style":"solid", "border-color":"#f8159c", "border-width":"2px"}); }
+//else { $("#user_username").css({"background-color":"#c6fec0", "border-style":"solid", "border-color":"#c6fec0", "border-width":"2px"}); }
+//
+//// Email validation color.
+//if ($("p.errors > span.error:contains('email ')").length > 0 ) {
+// $("#user_email").css({"background-color":"white", "border-style":"solid", "border-color":"#f8159c", "border-width":"2px"}); }
+//else { $("#user_email").css({"background-color":"#c6fec0", "border-style":"solid", "border-color":"#c6fec0", "border-width":"2px"}); }
+//    
+//// Reset the form.
+//$('#form')[0].reset();//

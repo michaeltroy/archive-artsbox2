@@ -1,17 +1,208 @@
-<%= form_for(@style) do |f| %>
-  <% if @style.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+	<!-- Background image. -->
+	<% if @style.background != nil %>
+	<p><%= image_tag @style.background.url(:small) %></p>
+	<% end %>
+	<p><%= f.file_field :background %></p>
+	<p><%= link_to "[x] No image", user_style_path(@user), :confirm => "For sure?", :method => :delete %>
+			
+	<div id="color_picker">
+		<div id="color_options">
+			<div id="sample_background_color" style="background-color:<%= @user.style.background_color %>;"></div>			
+			<div id="sample_panel" style="background-color:<%= @user.style.content_background %>;"></div>
+			<h1 id="h1_text">Heading one</h1>
+			<h2 id="h2_text">Heading two</h2>
+			<h3 id="h3_text">Heading three</h3>
+			<p id="p_text">Paragraph text</p>
+			<a id="a_text">Link text</a>
+		</div>
+		
+	<!-- background color -->
+	<div id="select_background_color">
+		<script type="text/javascript">
+		// set the color
+		  $(document).ready(function(){
+				$('#background_color_select').farbtastic("#wrapper_two, #background_color, #sample_background_color");
+		  });
+		</script>
 
-      <ul>
-      <% @style.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#sample_background_color').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#select_background_color').fadeIn();
+				});
+			});
+		</script>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+		<div id="background_color_select">
+		</div>	
+		<p><%= f.text_field :background_color, :id => "background_color", :value => "#{@user.style.background_color}", :class => "color_input" %></p>
+	</div>
+		
+	<!-- panel colors -->
+	<div id="panel_color">
+		<script type="text/javascript">
+		  $(document).ready(function() {
+		    $('#panel_color_select').farbtastic('#panel_two, #sample_panel, #user_panel, #content, #side_panel, #page');
+		  });
+		</script>
+		
+		<script type="text/javascript">
+		// toggle 
+			$(document).ready(function(){
+				$('#sample_panel').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#panel_color').fadeIn();		
+				});
+			});
+		</script>
+		
+		<div id="panel_color_select">
+		</div>		
+		<!-- We will display this input to give the user the illusion of having an input -->
+		<p><%= f.text_field :content_background, :id => "panel_two" , 
+												:value => "#{@user.style.left_panel_background}", 
+												:class => "color_input" %></p>
+		<!-- We can hide these inputs. No need for user interaction. -->
+		<div id="panel_colors">										
+		<p><%= f.text_field :left_panel_background, :id => "panel_two" , 
+												:value => "#{@user.style.content_background}" %></p>
+		<p><%= f.text_field :side_panel_background, :id => "panel_two" , 
+												:value => "#{@user.style.side_panel_background}" %></p>
+		<p><%= f.text_field :page_color, :id => "panel_two" , 
+												:value => "#{@user.style.page_color}" %></p>												
+		</div>
+	</div>
+
+	<!-- h1 color -->
+	<div id="h1_color">
+		<script type="text/javascript">
+		// set the color
+		  $(document).ready(function(){
+				$('#h1_color_select').farbtastic(function callback(color){
+					$('#wrapper_two h1, #h1').css({'color':color});
+					$('#h1').attr('value', color);				
+			 	});
+		  });
+		</script>
+		
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#h1_text').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#h1_color').fadeIn();
+				});
+			});
+		</script>
+					
+		<div id="h1_color_select">
+		</div>		
+		<p><%= f.text_field :h1, :id => 'h1',  :value => "#{@user.style.h1}", :class => "color_input" %></p>
+	</div>	
+	
+	<!-- h2 color -->	
+	<div id="h2_color">
+		<script type="text/javascript">
+		  $(document).ready(function(){
+				$('#h2_color_select').farbtastic(function callback(color){
+					$('#wrapper_two h2, #h2').css({'color':color});
+					$('#h2').attr('value', color);
+			 	});
+		  });
+		</script>
+		
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#h2_text').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#h2_color').fadeIn();		
+				});
+			});
+		</script>	
+
+		<div id="h2_color_select">
+		</div>		
+		<p><%= f.text_field :h2, :id => 'h2',  :value => "#{@user.style.h2}", :class => "color_input" %></p>
+	</div>
+		
+	<!-- h3 color -->	
+	<div id="h3_color">
+		<script type="text/javascript">
+		  $(document).ready(function(){
+				$('#h3_color_select').farbtastic(function callback(color){
+					$('#wrapper_two h3, #h3').css({'color':color});
+					$('#h3').attr('value', color);
+			 	});
+		  });
+		</script>
+		
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#h3_text').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#h3_color').fadeIn();		
+				});
+			});
+		</script>	
+
+		<div id="h3_color_select">
+		</div>		
+		<p><%= f.text_field :h3, :id => 'h3',  :value => "#{@user.style.h3}", :class => "color_input" %></p>
+	</div>
+	
+	<!-- p color -->
+	<div id="p_color">
+		<script type="text/javascript">
+		  $(document).ready(function(){
+				$('#p_color_select').farbtastic(function callback(color){
+					$('#wrapper_two p, #p').css({'color':color});
+					$('#p').attr('value', color);		
+			 	});
+		  });
+		</script>
+		  
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#p_text').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#p_color').fadeIn();		
+				});
+			});
+		</script>
+
+		<div id="p_color_select">
+		</div>
+		<p><%= f.text_field :p, :id => 'p',  :value => "#{@user.style.p}", :class => "color_input" %></p>
+	</div>
+	
+	<!-- all link states -->
+	<div id="a_color">
+		<script type="text/javascript">
+		  $(document).ready(function(){
+				$('#a_color_select').farbtastic(function callback(color){
+					$('#wrapper_two a, #a').css({'color':color});
+					$('#a').attr('value', color);
+			 	});
+		  });
+		</script>
+		
+		<script type="text/javascript" charset="utf-8">
+		// toggle 
+			$(document).ready(function(){
+				$('#a_text').click(function(){
+					$('#color_picker > #[id$=color]').css("disply", "none").css("display", "none");
+					$('#a_color').fadeIn();		
+				});
+			});
+		</script>		
+		
+		<div id="a_color_select">
+		</div>			
+		<p><%= f.text_field :a, :id => 'a',  :value => "#{@user.style.a}", :class => "color_input" %></p>
+	</div>
+	</div>

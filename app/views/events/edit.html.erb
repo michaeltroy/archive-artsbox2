@@ -1,6 +1,10 @@
 <h1>Editing event</h1>
 
-<%= render 'form' %>
+<%= error_messages_for :event %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<% form_for([@box, @event], box_event_path(@box), :html => {:multipart => true}) do |f| %>
+
+	<%= render :partial => "form", :locals => {:f => f} %>
+
+<%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,21 @@
+Hello <%= @user.username %>, 
+
+Please find below details and activation link for your www.artsbox.com account.
+
+- User address -
+http://www.artsbox.com/<%= @user.permalink %>
+
+- Password -
+<%= @user.password %>
+
+- Username -
+<%= @user.username %>
+
+-----------------------------------------------------------
+* PLEASE ACTIVATE YOUR ACCOUNT *
+All new www.artsbox.com accounts require activation before they can be used. 
+Please click on the link below to activate your account.
+http://www.artsbox.com/user/activation/<%= "#{@user.activation_code}" %>
+-----------------------------------------------------------
+
+Please email hello@artsbox.com for technical support or questions regarding you account.

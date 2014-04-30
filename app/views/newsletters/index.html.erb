@@ -1,25 +1,27 @@
-<h1>Listing newsletters</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @newsletters.each do |newsletter| %>
-      <tr>
-        <td><%= link_to 'Show', newsletter %></td>
-        <td><%= link_to 'Edit', edit_newsletter_path(newsletter) %></td>
-        <td><%= link_to 'Destroy', newsletter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<h1>Listing newsletters</h1> 
+<%= link_to 'Create new newsletter', new_user_newsletter_path %> 
+<table> 
+  <tr> 
+    <th>Subject</th> 
+    <th>Sent</th> 
+    <th>Created at</th> 
+    <th>Updated at</th> 
+  </tr> 
+<% for newsletter in @newsletters %> 
+  <tr> 
+    <td><%=h newsletter.subject %></td> 
+    <td><%= yes_no(newsletter.sent) %></td> 
+    <td><%=h newsletter.created_at.strftime("%a %d %b %y") %></td> 
+    <td><%= link_to 'Show', user_newsletter_path(@user, newsletter) %> | 
+      	
+				<%= link_to 'Edit', edit_user_newsletter_path(@user, newsletter) %> |
+      	
+				<%= link_to 'Destroy', user_newsletter_path(@user, newsletter), 
+              			:confirm => 'Are you sure?', 
+										:method => :delete %> |
+	  		<%= link_to 'Send', sendmail_user_newsletter_path(@user, newsletter), 
+			  						:method => :put, 
+										:confirm => 'Are you sure you wish to send this newsletter?' %></td> 
+  </tr> 
+<% end %> 
 </table>
-
-<br>
-
-<%= link_to 'New Newsletter', new_newsletter_path %>

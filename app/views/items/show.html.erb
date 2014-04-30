@@ -1,0 +1,30 @@
+
+<h1><%= @item.title %></h1>
+<p><%= @item.description %></p>
+
+<p><%= link_to 'Edit', edit_user_item_path(@user, @item) %></p>
+
+<% if @item.images.size == 0 %>
+<p id="placeholder">
+	 Your item "<%= @item.title %>" has no images yet!
+</p>
+<% else %>
+  
+<div id="gallery">
+	<% @item.images.each do |image| %>
+	<p id="image">
+	<%= link_to "#{image_tag image.image.url(:thumb)}", image.image.url(:large), 
+		:popup => ['height=600,width=600'] %>
+	
+	<% if active_user %>
+	<%= link_to "X", user_item_image_path(@user, @item, image) %></p>
+	<% else %>
+	<% end %>
+	
+	<% end %>
+</div>
+	
+<% end %>
+
+<%= render :partial => "images/image" %>
+

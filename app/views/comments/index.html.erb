@@ -1,25 +1,29 @@
-<h1>Listing comments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
+<p id="description">
+	<b>About comments:</b>
+Comments are all comments you have made on any other post or event. You can edit, update and delete any comment you have made. However cannot edit or delete any comment made on your post or event.
+<b>Hide this description</b>
+<%= check_box "Hide description", :controller => :blah %>
+<p>
+	
+	<% if @comments.size == 0 %>
+		<p id="placeholder">
+		Looks like you haven't made any comments yet!</p>	
+	<% else %>
+	
+	<!-- Comments -->
+		<h1>Listing comments</h1>
+		<table>
+			<tr>
+		  <th>Body</th>
+		  </tr>
+			<% for comment in @comments %>
+		  <tr>
+		    <td><%=h textilize(comment.body) %></td>
+		    <td><%= link_to 'Show', comment %></td>
+		    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+		    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', 
+																						:method => :delete %></td>
+			</tr>
+			<% end %>
+		</table>
+	<% end %>

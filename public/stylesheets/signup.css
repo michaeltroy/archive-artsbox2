@@ -1,0 +1,274 @@
+/* @override 
+  http://arts.local/stylesheets/login.css
+  http://artsbox.local/stylesheets/login.css
+  http://artsbox.local/stylesheets/login_signup.css
+  http://artsbox.local/stylesheets/login_signup.css
+  http://artsbox.local/stylesheets/signup.css
+*/
+
+body {
+  padding: 24px;
+  background-color: #eee;
+  color: #8e8e8e;
+  font: .8em/16px Helvetica, Arial, sans-serif;
+}
+
+fieldset {
+  border-style: none;
+  padding: 0;
+}
+
+label {
+  font-size: 124%;
+}
+
+input {
+  padding: 4px;
+  text-align: center;
+}
+
+select {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+a {
+  color: #8e8e8e;
+  text-decoration: underline;
+}
+
+/* ---------------- */
+
+#spinner {
+  text-align: center;
+  margin-bottom: 12px;
+  display: none;
+}
+
+/* ---------------- */
+
+#about {
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  width: 444px;
+  padding: 24px;
+  background-color: #f6f6f6;
+}
+
+#about h1 {
+  font-weight: normal;
+  font-style: normal;
+  color: #212121;
+}
+
+#about ul {
+  margin-top: 12px;
+  display: block;
+  font-size: 124%;
+  margin-bottom: 12px;
+}
+
+#about ul li {
+  display: block;
+  padding: 8px;
+}
+
+/* ---------------- */
+
+#signup {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fefffe;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  overflow: auto;
+  padding: 12px;
+  width: 996px;
+}
+
+/* ---------------- */
+
+#validation_message {
+  margin-right: 12px;
+  background-color: pink;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  padding: 24px;
+  overflow: auto;
+  text-align: center;
+  width: 444px;
+  display: none;
+  z-index: -1;
+  float: right;
+}
+
+#validation_message h2.error_message_headline {
+  color: #feeef0;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 144%;
+  margin-top: 0;
+}
+
+#validation_message p {
+  color: black;
+  margin-top: 8px;
+  padding: 2px;
+  font-size: 112%;
+}
+
+#validation_message p span.error_heading {
+  padding: 2px;
+  display: block;
+  background-color: #e5398e;
+  color: #7d077e;
+  margin-top: 4px;
+}
+
+#validation_message p span.error {
+  padding: 2px;
+  display: block;
+}
+
+#validation_message p.errors {
+  margin-bottom: 0;
+}
+
+/* ---------------- */
+
+#permalink {
+  background-color: #363636;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+#form {
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  padding: 24px;
+  text-align: center;
+  width: 444px;
+  background-color: #252525;
+  position: relative;
+  z-index: 0;
+  float: right;
+}
+
+#form p.item {
+  margin-right: auto;
+  margin-left: auto;
+  clear: both;
+  padding: 12px;
+  margin: 0;
+}
+
+#form p.item span.label {
+  font-size: 164%;
+  display: block;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+#form p.item input {
+  margin-bottom: 8px;
+  width: 408px;
+  font-size: 184%;
+}
+
+#form p.item input.permalink {
+  margin-bottom: 8px;
+  font-size: 184%;
+  width: 244px;
+  margin-right: 2px;
+}
+
+#form p.item select {
+  background-color: #fefffe;
+  text-align: center;
+  font-size: 112%;
+}
+
+#form p.item span.hint {
+  display: block;
+  clear: both;
+  color: #515151;
+}
+
+#form span.artsbox_com {
+  float: left;
+  font-size: 200%;
+  color: #707070;
+  padding-top: 12px;
+}
+
+#form input.permalink {
+  float: right;
+  text-align: left;
+  width: 248px;
+}
+
+/* ---------------- */
+
+#form #create_my_account {
+  clear: both;
+  text-align: center;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+/* ---------------- */
+
+#form #create_my_account input.signup-button {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* ---------------- */
+
+#form p.terms {
+  display: block;
+  clear: both;
+}
+
+/* ---------------- */
+
+#redirect {
+  clear: both;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#redirect p.not_ready_to_sign_up {
+  margin-bottom: 0;
+  margin: 0;
+}
+
+/* ---------------- */
+
+#success {
+  background-color: #c6fec0;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  text-align: center;
+  vertical-align: middle;
+  display: none;
+  height: 584px;
+}
+
+#success h2.success_message_headline {
+  color: #1c9253;
+  margin-bottom: 24px;
+  padding-top: 202px;
+  font-size: 400%;
+}
+
+#success p {
+  color: #1c9253;
+  font-size: 124%;
+  margin-bottom: 12px;
+}
+
+#success p a {
+  color: #259191;
+}

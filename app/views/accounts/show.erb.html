@@ -1,0 +1,7 @@
+<h2><%= @account.user.permalink %></h2>
+
+
+<p>You are currently on the</p>  
+<p><b><%= @account.plan.upcase %></b> plan.</p>
+
+<%= link_to 'Edit', edit_account_path(@active) %>

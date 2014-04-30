@@ -1,74 +1,131 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+class UsersController < DashboardController
+  
+  before_filter       :user, :except => [:activation]
+  before_filter       :is_active_user, :except => [:show, :activation]
+  skip_before_filter  :is_admin, :except => [:index, :new, :create]
+  
+  def user
+    @user = User.find_by_permalink(params[:permalink])
+  end
+  
+  # Account activation.
+  def activation
+  @user = User.find_by_activation_code(params[:id]) 
+    if @user and @user.activated_at == nil and @user.activate
+      flash[:notice] = "Your account has been activated #{@user.permalink}."
+      redirect_to login_path()
+    else
+      redirect_to signup_page_path()
+      flash[:notice] = "looks like you have already activated or there was no code"
+    end
+  end
+
+  # user requested updated password
+  def update_password
+    @account = Account.find(active)
+
+    respond_to do |format|
+      if @account.update_attributes(params[:account])
+           PostOffice.deliver_account_updated_details(@account)
+        flash[:notice] = "Password updated"
+        format.html { redirect_to(account_url(active)) }
+        format.xml  { head :ok }
+        else
+        redirect_to account_url(active)
+        flash[:error] = "Something went wrong!"
+      end
+    end  
+  end  
 
   # GET /users
-  # GET /users.json
+  # GET /users.xml
   def index
     @users = User.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
 
   # GET /users/1
-  # GET /users/1.json
+  # GET /users/1.xml
   def show
+    @user = User.find_by permalink: 'mike'#(params[:permalink])
+    #@user = User.find_by_permalink(params[:permalink])
+    #@subscription = Spreedly::Subscriber.find(id=@user.id)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
 
   # GET /users/new
+  # GET /users/new.xml
   def new
     @user = User.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
 
   # GET /users/1/edit
   def edit
+    @user = User.find_by_permalink(params[:permalink])
   end
 
   # POST /users
-  # POST /users.json
+  # POST /users.xml
   def create
-    @user = User.new(user_params)
+    @user = User.new(params[:user])
+    @user.profile = Profile.new(params[:profile])
+    @user.style = Style.new(params[:style])
+    random = User.generate_random_password(8)
+    @user.password = random
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
+        #ExpressPostOffice.deliver_user_new(@user)
+        flash[:notice] = 'User was successfully created.'
+        format.html { redirect_to(@user) }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
+        format.js
       else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PUT /users/1
+  # PUT /users/1.xml
   def update
+    @user = User.find_by_permalink(params[:permalink])
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+      if @active.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+       # ExpressPostOffice.deliver_user_updated_details(@user)
+        format.html { redirect_to permalink_path(@active) }
+        format.xml  { head :ok }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { redirect_to :back }
+        format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /users/1.xml
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
+
     respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+      format.html { redirect_to(users_url) }
+      format.xml  { head :ok }
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params[:user]
-    end
 end

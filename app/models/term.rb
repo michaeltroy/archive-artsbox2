@@ -1,2 +1,5 @@
-class Term < ActiveRecord::Base
+class Terms < ActiveRecord::Base
+  
+  belongs_to :user
+  
 end

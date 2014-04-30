@@ -1,0 +1,12 @@
+<div id="hint">
+	Add an image for your item
+</div>
+
+<% form_for([@user, @image], new_user_image_path(@user), 
+	:html => {:multipart => true}) do |f| %>
+	
+	<%= f.file_field :image %>
+	<p><br />
+	<%= f.submit "Upload" %>
+	</p>
+<% end %>

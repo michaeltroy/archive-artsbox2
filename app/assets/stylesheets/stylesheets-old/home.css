@@ -1,0 +1,158 @@
+#headmast {
+	width: 1080px;
+	margin-bottom: 24px;
+	overflow: auto;
+}
+
+#artsbox {
+	width: 708px;
+	margin-right: 12px;
+	float: left;
+	padding-bottom: 12px;
+	padding-top: 8px;
+}
+
+#signup {
+	float: left;
+	width: 348px;
+	padding-bottom: 12px;
+	padding-top: 8px;
+}
+
+#headmast h1 {
+	font-size: 212%;
+	line-height: 32px;
+}
+
+#artsbox h1 {
+	color: #2c2c2c;
+}
+
+#artsbox h1 span.emphasis {
+	color: #707070;
+	background-color: #f6f6f6;
+}
+
+#artsbox h1 span.lovers {
+	color: #d84e93;
+}
+
+#artsbox h1 a {
+	padding: 4px 12px;
+}
+
+#signup h1 a {
+	color: #d84e93;
+	padding-right: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+/* ---------------- */
+
+#stream {
+	width: 1080px;
+	margin-right: 12px;
+}
+
+/* ---------------- */
+
+#home_middle_wrapper {
+	margin-bottom: 24px;
+}
+
+/* ---------------- */
+
+#stream div.image img {
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;	
+}
+
+#stream div.post {
+	margin-bottom: 12px;
+	height: 168px;
+	width: 348px;
+	float: left;
+	margin-right: 12px;
+}
+
+#stream div.post p.post {
+	line-height: 20px;
+	font-size: 124%;
+	background-color: #ccfef2;
+	padding: 6px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+}
+
+#stream div.post h1.speech {
+	color: #ccfef2;
+	float: right;
+	margin-right: 24px;
+	margin-top: -4px;
+}
+
+#stream div.post p img.avatar {
+	margin-left: 324px;
+}
+
+#stream div.post p a {
+	color: #4b6f59;
+}
+
+/* ---------------- */
+
+#stream div.image {
+	height: 168px;
+	margin-bottom: 12px;
+	width: 168px;
+	float: left;
+	margin-right: 12px;
+}
+
+/* ---------------- */
+
+#stream div.comment {
+	height: 168px;
+	margin-bottom: 12px;
+	width: 168px;
+	margin-right: 12px;
+	float: left;
+}
+
+#stream div.comment p.comment {
+	font-size: 164%;
+	line-height: 22px;
+	background-color: #c6fec0;
+	padding: 6px;
+	-webkit-border-radius:4px;	
+}
+
+#stream div.comment h1.speech {
+	color: #c6fec0;
+	float: right;
+	margin-right: 24px;
+	margin-top: -4px;
+}
+
+#stream div.comment p img.avatar {
+	margin-left: 144px;
+}
+
+#stream div.comment p a {
+	color: #515151;
+}<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>home</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Michael">
+	<!-- Date: 2008-09-23 -->
+</head>
+<body>
+
+</body>
+</html>

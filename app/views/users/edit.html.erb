@@ -1,6 +1,7 @@
-<h1>Editing user</h1>
+<h1>Edit my box</h1>
 
-<%= render 'form' %>
+<%= form_for update_user_path(@active), :url => {:action => :update}, :html => {:multipart => true} do |f| %> 
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <%= f.submit "Update my box" %>
+<% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

@@ -1,0 +1,12 @@
+<h1>Update pitem</h1>
+
+<% form_for([@user, @item], edit_user_item_path(@user)) do |f| %>
+  <%= f.error_messages %>
+	<%= render :partial => "form", :locals => {:f => f} %> <br />
+  <%= f.submit "Update item" %>
+<% end %>
+
+
+
+
+

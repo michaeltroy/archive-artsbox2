@@ -1,0 +1,89 @@
+  <!-- form -->
+  <div id="form">
+
+    <%= form_for @user, :url => signup_new_user_path, :html => {
+    :onSubmit => "$('#create_my_account').hide(); $('#spinner').show();" } do |user| %>
+    
+      <%= user.hidden_field :password, :value => "#{@random}" %>
+  
+      <p class="item">
+        <span class="label">What best describes you?</span>
+        <span><%= user.select(:persona, [["Creative type", "creative"], 
+                                      ["Art lover", "lover"],
+                                      ["Gallery", "gallery"],
+                                      ["Organisation", "organisation"]]) %></span>
+        <span class="hint">Creative type = designer, illustrator, painter, crafter etc.</span></p>
+    
+      <div id="permalink">
+        <p class="item">
+          <span class="label">Create a user address</span>
+          <span class="artsbox_com">artsbox.com/</span> 
+          <span><%= user.text_field :permalink, :class => "permalink" %></span>
+          <span class="hint">This is how people and search engines will find you and your content.</span></p>
+      </div>
+    
+      <p class="item">
+        <span class="label">Choose a username</span>
+        <span><%= user.text_field :username %></span>
+        <span class="hint">Your username is the name that identifies you to other users.</span></p>       
+      
+      <p class="item">
+        <span class="label">Your email address</span>
+        <span><%= user.text_field :email %></span>
+        <span class="hint">We need this to confirm your account and for general communication.</span></p>
+      
+      <p class="item" style="display:none;">
+        <span class="label">Nasty bot test</span>
+        <span><%= user.text_field :blank %></span>
+        <span class="hint">This is nasty bot protection.</span></p>
+    
+      <p class="terms">
+      By submitting this form you agree and acknowledge the 
+      <%= link_to "terms of service", terms_path %>.
+      </p>
+
+      <!-- spinner -->
+      <div id="spinner"><%= image_tag "login/loader.gif" %></div>
+
+      <!-- new account submit button -->
+      <div id="create_my_account">
+        <%= image_submit_tag("signup/create-my-profile-now.gif", :class => "signup-button") %>
+      </div>
+    
+    <% end %>
+
+
+
+
+
+
+
+
+    <!-- redirect to login form -->
+    <div id="redirect">
+      <p class="not_ready_to_sign_up"><%= link_to "Already a member", new_session_path %> 
+      <span class="or">or</span>
+      <%= link_to "please take me home", :controller => :home %></h4>   
+    </div>
+  </div>
+  
+  <!-- Welcome and about -->
+  <div id="about">
+    <h1>Joining ArtsBox is simple. </h1>
+    <ul>
+      <li>Get a uniuque user address</li>
+      <li>Promote your work</li>
+      <li>Follow your favourite artists and designers</li>
+    </ul>
+    <p></p>
+  </div>
+
+  <!-- validation errors and messages -->
+  <div id="validation_message">
+    <h2 class="error_message_headline">Oops, please try again :)</h2>
+  </div>
+  
+  <!-- success message -->
+  <div id="success">
+    <%= render :partial => "new_account_success" %>
+  </div>

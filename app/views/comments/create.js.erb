@@ -1,0 +1,2 @@
+$("#new_comment").replaceWith('<p class="flash">Thanks for the comment. <%= link_to "Want to make another comment?", user_post_path(@post.user.permalink, @post) %></p>');
+$("#comments").append("<%= escape_javascript(render(:partial => @comment)) %>");

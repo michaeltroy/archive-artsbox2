@@ -1,0 +1,9 @@
+
+	<div id="items">
+		<% for item in @latest_items %>
+		<div class="item">
+			<%= link_to "#{image_tag item.images.first.image.url(:thumb)}", 
+			box_item_path(item.box, item) %>
+		</div>	
+		<% end %>
+	</div>

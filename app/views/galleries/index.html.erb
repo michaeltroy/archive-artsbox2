@@ -1,0 +1,21 @@
+
+	<h1>Image galleries</h1>
+
+	<div id="gallery">
+	<% for gallery in @galleries %>
+		<p id="image_set">
+		<%= image_tag("icons/camera.png") %> <br />
+		<b><%=h gallery.title %></b> <br />
+		Has <%= gallery.images.count %> images.<br />
+		<%= link_to 'Show', user_gallery_path(@user, gallery) %>|
+	  <%= link_to 'Destroy', user_gallery_path(@user, gallery), 
+							:confirm => 'Are you sure?', :method => :delete %>
+		</p>
+	<% end %>
+	</div>
+	
+	<div id="hint">
+		You can create as many image galleries as you want.<br />
+		<b>When you remove a gallery, all images are removed as well</b>
+	</div>
+	<%= link_to "Create a new gallery", new_user_gallery_path(@user) %>

@@ -1,0 +1,6 @@
+
+<% form_for([@user, @post, @comment], user_post_comment_path(@user, @post)) do |f| %>
+	<h2>Want to comment on this post?</h2>
+	<%= f.text_area(:body, :size => "44x4") %>
+	<%= f.submit "Comment" %>
+<% end %>

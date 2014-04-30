@@ -1,0 +1,38 @@
+<% for friend in @active.friendships %>
+<%= image_tag friend.friend.avatar.url(:tiny) %>	<%= friend.friend.username %> <%= friend.friend_id %><br />
+<% end %>
+
+<div id="name">
+	<% @activity.each do |item| %>
+
+			<% if item.class == Post %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr><td width="64px"><%= link_to "#{item.user.permalink}", permalink_path(item.user) %></td>				
+						<td width="44px"><%= image_tag item.user.avatar.url(:tiny) %></td>
+						<td width="64px" style="background-color:#FFDDEC"><%= item.class %></td>
+						<td><%= link_to "#{item.title}", user_post_path(item.user, item) %></td>
+				</tr>
+			</table>
+			
+			<% elsif item.class == Image %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr><td width="64px"><%= link_to "#{item.user.username}" %></td>				
+						<td width="44px"><%= image_tag item.user.avatar.url(:tiny) %></td>
+						<td width="64px" style="background-color:#FFFEBB"><%= item.class %></td>
+						<td><%= link_to "#{image_tag item.image.url(:four_eight)}" %></td>
+				</tr>
+			</table>
+
+			<% else item.class == Comment %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr><td width="64px"><%= link_to "#{item.user.permalink}", permalink_path(item.user) %></td>				
+						<td width="44px"><%= image_tag item.user.avatar.url(:tiny) %></td>
+						<td width="64px" style="background-color:#CBE8F1"><%= item.class %>
+						<td><%= link_to "#{item.body.first(124)}", user_post_path(item.user, item.post) %></td>
+				</tr>
+			</table>
+			<% end %>			
+		</p>
+	<% end %>
+</div>
+

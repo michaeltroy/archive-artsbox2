@@ -1,6 +1,13 @@
-<h1>Editing newsletter</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @newsletter %> |
-<%= link_to 'Back', newsletters_path %>
+
+<h1>New newsletter</h1>
+
+<%= error_messages_for :newsletter %>
+
+<% form_for([@user, @newsletter], new_user_newsletter_path(@user)) do |f| %>
+
+	<%= render :partial => "form", :locals => {:f => f} %>
+
+<%= f.submit "Submit" %>
+<% end %>

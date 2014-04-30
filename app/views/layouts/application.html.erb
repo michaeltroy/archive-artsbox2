@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Artsbox</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <!-- javascript libraries -->
+  <%= javascript_include_tag 'javascripts-old/jquery', 
+                             'javascripts-old/application', 
+                             'javascripts-old/farbtastic/farbtastic.js' %>
+  
   <%= csrf_meta_tags %>
+  
+  <!-- global meta -->
+  <meta charset="utf-8">
+  
+  <!-- variable meta -->
+  <% if controller.controller_name == 'home' %>
+    <%= render :partial => "meta/meta_data_home" %>
+  <% else %>
+    <%= render :partial => "meta/meta_data_page" %>
+  <% end %> 
 </head>
 <body>
 
-<%= yield %>
+  <!-- wrapper one -->
+  <div id="wrapper_one">
+  <div id="inner_wrapper_one">
+    <div id="navigation">
+      <%= render :partial => "parts/navigation_one" %>
+    </div>
+  </div>
+  </div>
+  
+  <!-- wrapper two -->  
+  <div id="wrapper_two">
+  <div id="inner_wrapper_two">
+    <% if controller.controller_name == 'home' %>
+      <%= render :partial => "layouts/home" %>
+    <% else %>
+      <%= render :partial => "layouts/page" %>
+    <% end %>
+  </div>
+  </div>
 
+  <!-- wrapper thress -->
+  <div id="wrapper_three">
+  <div id="inner_wrapper_three">  
+    <div id="foot">
+      <%= render :partial => "foot/foot_collect" %>
+    </div>
+  </div>
+  </div>
+  
+  <!-- developer -->
+  <div id="developer">
+    <%= render :partial => "developer/developer_details" %>
+  </div>
+
+<%= render :partial => "meta/google_analytics" %>
 </body>
 </html>

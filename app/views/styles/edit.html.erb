@@ -1,6 +1,6 @@
-<h1>Editing style</h1>
+<%= error_messages_for :style %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @style %> |
-<%= link_to 'Back', styles_path %>
+<% form_for([@user, @style], user_style_path(@user), :html => {:multipart => true}) do |f| %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,0 +1,210 @@
+/* @override 
+	http://localhost:3000/stylesheets/page.css
+	http://arts.local/stylesheets/page.css
+	http://hunterarts.local/stylesheets/page.css
+	http://thehunterarts.local/stylesheets/page.css
+	http://artsbox.local/stylesheets/page.css
+*/
+
+@import url("styles.css");
+
+/* ---------------- */
+#page {
+	overflow: auto;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;		
+}
+
+/* ---------------- */
+
+#hint {
+	font-size: 90%;
+	clear: both;
+	margin-bottom: 4px;
+	margin-top: 0;
+}
+
+#hint b {
+	background-color: #feebfa;
+	color: #d83290;
+	clear: both;
+}
+
+span.hintAlert {
+	background-color: #fbfcde;
+	color: #000;
+}
+
+p.description {
+	margin-bottom: 4px;
+	font-size: 90%;
+	margin-left: 0;
+}
+
+#placeholder {
+	background-color: #fbfcde;
+	padding: 8px;
+	font-size: 112%;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* ---------------- */
+
+#navigation_two_and_three {
+	padding-left: 180px;
+}
+
+#navigation_two {
+	display: inline-block;
+	background-color: #fff;
+	padding: 4px;
+}
+
+#navigation_three {
+	background-color: #fbfcde;
+	display: inline-block;
+}
+
+#navigation_two a {
+	margin-right: 4px;
+	text-decoration: none;
+}
+
+#navigation_three a {
+	border-color: #ae2874;
+}
+
+/*box panel ---*/
+
+#user_panel {
+	width: 144px;
+	margin-right: 12px;
+	float: left;
+	background-color: #fff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	padding: 12px;
+}
+
+#user_panel p {
+	margin-bottom: 8px;
+	line-height: 14px;
+}
+
+#user_panel h1 {
+	font-weight: normal;
+	font-style: normal;
+	padding-top: 4px;
+	margin-bottom: 12px;
+}
+
+#user_panel h2 {
+	margin-bottom: 12px;
+}
+
+#user_panel div.dashboard_avatar {
+	margin-bottom: 12px;
+}
+
+#user_panel ul.user_navigation {
+	display: block;
+	list-style-type: none;
+}
+
+#user_panel ul.user_navigation li a {
+	display: block;
+	margin-bottom: 6px;
+	margin-top: 6px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	text-decoration: none;
+	padding-bottom: 4px;
+}
+
+/* ---------------- */
+#content {
+	width: 504px;
+	float: left;
+	margin-right: 12px;
+	min-height: 424px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	padding: 12px;
+}
+
+#content h1 {
+	margin-bottom: 12px;
+	font-size: 186%;
+	margin-top: 8px;
+}
+
+#content h2 {
+	font-size: 124%;
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+#content h3 {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 112%;
+	margin-bottom: 4px;
+}
+
+#content p {
+	margin-bottom: 12px;
+}
+
+/* ---------------- */
+
+#content fieldset {
+	background-color: #eaeaea;
+	border-style: none;
+	margin-bottom: 8px;
+}
+
+#content fieldset input {
+	margin-bottom: 4px;
+	font-size: 104%;
+}
+
+#content legend {
+	background-color: #eaeaea;
+	padding-right: 8px;
+	padding-left: 8px;
+	font-weight: bold;
+	font-size: 104%;
+	padding-top: 4px;
+}
+
+#content label {
+	margin-right: 24px;
+	width: 64px;
+	clear: left;
+	float: left;
+	font-size: 104%;
+	margin-top: 4px;
+	padding-left: 4px;
+}
+
+#content p.form_foot {
+	margin-bottom: 44px;
+	background-color: #fff;
+	padding: 12px;
+	border-style: none;
+}
+
+#content p.form_foot input  {
+	margin-right: 8px;
+}
+
+#content form.button-to {
+	margin-bottom: 0;
+}
+
+#content textarea#comment_body {
+	margin-bottom: 12px;
+	width: 100%;
+}
+

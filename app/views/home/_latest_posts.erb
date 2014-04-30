@@ -1,0 +1,15 @@
+
+	<% @latest_posts.each do |post| %>
+	<div class="post">
+		<p class="avatar"><%= link_to "#{image_tag post.user.avatar.url(:small)}",
+		user_post_path(post.user, post) %></p>
+		
+		<p class="title"><%= link_to "#{post.title}", user_post_path(post.user, post) %></p>
+		
+		<p class="body"><%= post.body.first(280) %>...</p>
+		
+		<p class="author">
+		<%= time_ago_in_words(post.created_at).capitalize %> ago by 
+		<%= link_to "#{post.user.permalink}", permalink_path(post.user) %></p>	
+	</div>
+	<% end %>

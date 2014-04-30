@@ -1,0 +1,28 @@
+
+		<% @activity.each do |item| %>
+
+				<% if item.class == Image %>
+				<div class="image">
+					<p><%= link_to "#{image_tag item.image.url(:one_six_eight)}", user_images_path(item.user) %></p>
+				</div>
+
+				<% elsif item.class == Post %>				
+				<div class="post">
+					<p class="post" style="background-color:<%= cycle("#FFEAED", "#CBE8F1", "#ccfef2", "#FFFEE6") %>;">
+					<%= link_to "#{truncate(item.body, :length => 222)}", user_post_path(item.user, item) %></p>
+					<h1 class="speech" style="color:<%= current_cycle %>">
+						▼</h1>
+					<p><%= image_tag item.user.avatar.url(:tiny), :class => "avatar" %></p>					
+				</div>				
+
+				<% else item.class == Comment %>
+				<div class="comment">
+					<p class="comment" style="background-color:<%= cycle("#FFEAED", "#CBE8F1", "#ccfef2", "#FFFEE6") %>;">
+					<%= link_to "#{truncate(item.body, :length => 56)}", user_post_path(item.user, item.post) %></p>
+					<h1 class="speech" style="color:<%= current_cycle %>">
+						▼</h1>
+					<p><%= image_tag item.user.avatar.url(:tiny), :class => "avatar" %></p>					
+				</div>
+				<% end %>	
+			</p>
+		<% end %>

@@ -1,0 +1,20 @@
+<title>Needs a title</title>
+
+<!-- Get our styles for page. -->
+<%= stylesheet_link_tag 'global', 'page' %>
+<link rel="stylesheet" href="/javascripts/farbtastic/farbtastic.css" type="text/css" />
+
+<!-- Get user saved styles -->
+<style type="text/css" media="screen">
+  #wrapper_two      { background-color: <%= @user.style.background_color %>;}
+  #wrapper_two      { background-image: url(<%= @user.style.background.url %>); }
+  #page             { background-color: <%= @user.style.page_color %>;} 
+  #user_panel       { background-color: <%= @user.style.left_panel_background %>; }
+  #content          { background-color: <%= @user.style.content_background %>; }
+  #side_panel       { background-color: <%= @user.style.side_panel_background %>; }
+  #wrapper_two p    { color: <%= @user.style.p %>; }
+  #wrapper_two h1   { color: <%= @user.style.h1 %>; }
+  #wrapper_two h2   { color: <%= @user.style.h2 %>; }
+  #wrapper_two h3   { color: <%= @user.style.h3 %>; }
+  #wrapper_two a    { color: <%= @user.style.a %>; }  
+</style>

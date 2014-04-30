@@ -1,25 +1,36 @@
-<h1>Listing events</h1>
+<h1>Events</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <tr>
+	<th>Image</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Venue</th>
+	<th></th>
+  </tr>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<% for event in @events %>
+  <tr>
+    <td><%= image_tag event.image.url(:small) %></td>
+
+    <td><%=h event.title %></td>
+    <td><%=h event.location %></td>
+    <td><%=h event.venue %></td>
+    <td><%= link_to 'Show', box_event_path(@box, event) %> |
+	
+			<% if active_box %>
+    	<%= link_to 'Edit', edit_box_event_path(@box, event) %> |
+    	<%= link_to 'Destroy', box_event_path(@box, event), :confirm => 'Are you sure?', 
+									  :method => :delete %>
+			<% else %>
+			<% end %>
+			</td>
+  </tr>
+<% end %>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Event', new_event_path %>
+<% if active_box %>
+<%= link_to "#{image_tag "icons/calendar_plus.png"} List a new event", new_box_event_path(@box) %>
+<% end %>

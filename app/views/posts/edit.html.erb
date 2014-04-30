@@ -1,6 +1,6 @@
 <h1>Editing post</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<% form_for([@box, @post], box_post_path(@box)) do |f| %>
+	<%= render :partial => "form", :locals => {:f => f} %> <br />
+<%= f.submit "Update post" %>
+<% end %>

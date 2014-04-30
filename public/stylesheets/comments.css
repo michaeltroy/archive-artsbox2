@@ -1,0 +1,77 @@
+/* @override 
+  comments
+  --
+  http://artsbox.local/stylesheets/page.css
+  http://artsbox.local/stylesheets/comments.css
+*/
+
+/*--------------------*/
+
+#new_comment {
+  margin-bottom: 12px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding: 12px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px
+}
+
+ #comment {
+  clear: both;
+  overflow: auto;
+  margin-bottom: 12px;
+  padding: 6px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px
+}
+
+textarea#comment_body {
+  height: 124px;
+}
+
+#new_comment h2 {
+  margin-top: 0;
+}
+
+ #comment span.avatar img {
+  border: 1px solid #dbdbdb;
+  margin-right: 12px;
+  padding: 4px;
+  background-color: #f4f4f4;
+  float: left;
+  display: inline;
+  margin-top: 2px;
+}
+
+ #comment b a {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 104%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+ #comment span.body {
+  margin-left: 76px;
+  display: block;
+}
+
+#comment span.body p {
+  margin-bottom: 4px;
+}
+
+ #comment span.posted_on {
+  margin-left: 76px;
+  display: block;
+  font-style: italic;
+  font-size: 94%;
+}
+
+ p.post_comment_count {
+  font-size: 102%;
+}
+
+ p.post_comment_count span.post_comment_last_made_by {
+  font-style: italic;
+}

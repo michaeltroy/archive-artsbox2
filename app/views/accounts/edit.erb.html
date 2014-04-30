@@ -1,0 +1,8 @@
+<h1>Edit my account</h1>
+
+<p>You are currently on the <b><%= @account.plan %></b> plan.</p>
+
+<% form_for([@active.account], account_path(@active)) do |f| %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+	<%= f.submit "Update my account" %>
+<% end %>

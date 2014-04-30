@@ -12,6 +12,21 @@ gem 'jbuilder', '~> 1.2'
 # Rails observers
 gem 'rails-observers'
 
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+# for :id "salt in user"
+gem 'protected_attributes'
+
+# Legacy
+gem "adzap-ar_mailer", "~> 2.1.10"
+gem "actionmailer", "~> 4.0.2"
+gem "paperclip", "~> 3.0"
+gem "aws-sdk", "~> 1.33.0"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

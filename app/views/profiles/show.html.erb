@@ -1,0 +1,7 @@
+<p>
+  <%= textilize(@profile.body) %>
+</p>
+
+<% if is_active_user %>
+<%= link_to 'Edit', edit_user_profile_path(@user, @profile), :method => :get %>
+<% end %>

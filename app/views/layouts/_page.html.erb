@@ -1,0 +1,22 @@
+	<!-- Page: for content and sidebar -->
+	<div id="page">
+		
+		<div id="user_panel">
+			<%= render :partial => "parts/user_panel" %>
+		</div>
+
+  	<div id="content">
+			<% if flash[:notice] then %>
+			<p class="flash"><%= flash[:notice] %></p>
+			<% elsif flash[:error] %>
+			<p class="error"><%= flash[:error] %></p>
+			<% else %>
+			<% end %>
+		<!-- yield content -->
+			<%= yield %>
+		</div>
+			
+		<div id="side_panel">
+			<%= render :partial => "parts/side_panel" %>
+		</div>
+	</div>

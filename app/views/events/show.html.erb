@@ -1,4 +1,19 @@
-<p id="notice"><%= notice %></p>
+<%= image_tag @event.image.url(:large) %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<p>	<b>Title:</b>		<%=h @event.title %></p>
+<p>	<b>Location:</b>	<%=h @event.location %></p>
+<p>	<b>Venue:</b>		<%=h @event.venue %></p>
+<p>	<b>Artist:</b>		<%=h @event.artist %></p>
+<p>	<b>Body:</b>		<%=h @event.body %></p>
+<p>	<b>Link:</b>		<%=h @event.link %></p>
+<p>	<b>Permalink:</b>	<%=h @event.permalink %></p>
+<p>	<b>Start date:</b>	<%=h @event.start_date %></p>
+<p>	<b>Start time:</b>	<%=h @event.start_time %></p>
+<p>	<b>End date:</b>	<%=h @event.end_date %></p>
+<p>	<b>End time:</b>	<%=h @event.end_time %></p>
+<p>	<b>Opening date:</b><%=h @event.opening_date %></p>
+<p>	<b>Opening time:</b><%=h @event.opening_time %></p>
+
+<% if active_box %>
+<%= link_to "#{image_tag "icons/calendar_pencil.png"} Edit this event", edit_box_event_path(@box, @event) %>
+<% end %>
